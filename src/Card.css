@@ -1,0 +1,13 @@
+.card {
+    cursor: pointer; /* 鼠标悬停时变为指针 */
+    border: 2px solid #ddd; /* 边框颜色 */
+    padding: 10px; /* 内边距 */
+    border-radius: 8px; /* 圆角 */
+    text-align: center; /* 文本居中 */
+  }
+  
+  .card img {
+    width: 100px; /* 图片宽度 */
+    height: 100px; /* 图片高度 */
+  }
+  
