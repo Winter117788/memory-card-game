@@ -11,20 +11,25 @@ const App = () => {
   const [bestScore, setBestScore] = useState(0); // 最佳得分
   const [clickedCards, setClickedCards] = useState([]); // 记录已点击的卡片
 
-  // 从外部 API 获取数据
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=12') // 获取 12 个 Pokemon 数据
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=72')
       .then((response) => response.json())
       .then((data) => {
-        // 将数据转换为我们需要的格式，并存入 cards 状态
-        const fetchedCards = data.results.map((item, index) => ({
-          id: index + 1,
-          name: item.name,
-          image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`,
-        }));
-        setCards(fetchedCards); // 设置卡片数据
+        // Shuffle the Pokémon list
+        const shuffled = data.results.sort(() => 0.5 - Math.random());
+        const selectedCards = shuffled.slice(0, 12).map((item) => {
+          // Extract the Pokémon ID from the URL
+          const pokemonId = item.url.split('/').filter(Boolean).pop();
+          return {
+            id: pokemonId,
+            name: item.name,
+            image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
+          };
+        });
+        setCards(selectedCards);
       });
-  }, []); // 仅在组件挂载时执行一次
+  }, []);
+  
 
   // 随机排列卡片的函数
   const shuffleCards = (cards) => {
@@ -32,9 +37,10 @@ const App = () => {
   };
 
   // 卡片点击处理函数
-  const handleCardClick = (id) => {
+  const handleCardClick = (id, name) => {
     // 如果卡片已经被点击过，游戏重置
     if (clickedCards.includes(id)) {
+      alert(`不好意思，${name} 已经点击过了！`); // Show the message with the Pokémon name
       setScore(0); // 当前得分重置
       setClickedCards([]); // 重置点击卡片记录
     } else {

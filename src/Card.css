@@ -1,13 +1,25 @@
 .card {
-    cursor: pointer; /* 鼠标悬停时变为指针 */
-    border: 2px solid #ddd; /* 边框颜色 */
-    padding: 10px; /* 内边距 */
-    border-radius: 8px; /* 圆角 */
-    text-align: center; /* 文本居中 */
+    cursor: pointer; /* Mouse pointer on hover */
+    border: 2px solid #ddd; /* Border color */
+    padding: 10px; /* Padding around content */
+    border-radius: 8px; /* Rounded corners */
+    border: 3px solid #fff; /* Adds a white border to create spacing */
+    text-align: center; /* Center text */
+    background-color: rgb(51, 199, 199); /* Cyan background color */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow effect */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Scale card slightly on hover */
   }
   
   .card img {
-    width: 100px; /* 图片宽度 */
-    height: 100px; /* 图片高度 */
+    width: 100px; /* Image width */
+    height: 100px; /* Image height */
+    margin-bottom: 10px; /* Space below the image */
   }
   
+  .card p{
+    font-size: 20px;
+  }

@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg'); /* URL of the Pokémon logo */
+  background-size: cover; /* Adjust background size */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image from repeating */
+  height: 100vh; /* Set height to cover the whole viewport */
 }
 
 .card-grid {
