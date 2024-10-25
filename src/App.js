@@ -12,7 +12,7 @@ const App = () => {
   const [clickedCards, setClickedCards] = useState([]); // 记录已点击的卡片
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=72')
       .then((response) => response.json())
       .then((data) => {
         // Shuffle the Pokémon list
