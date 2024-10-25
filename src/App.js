@@ -12,7 +12,7 @@ const App = () => {
   const [clickedCards, setClickedCards] = useState([]); // 记录已点击的卡片
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=72')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=12')
       .then((response) => response.json())
       .then((data) => {
         // Shuffle the Pokémon list
@@ -52,6 +52,12 @@ const App = () => {
       // 添加卡片到已点击列表并打乱卡片顺序
       setClickedCards([...clickedCards, id]);
       setCards(shuffleCards([...cards]));
+
+      if (clickedCards.length + 1 === cards.length){
+        alert(`你赢了！你点击了所有的不同的${cards.length}张卡牌`)
+        setScore(0);
+        setClickedCards([]);
+      }
     }
   };
 

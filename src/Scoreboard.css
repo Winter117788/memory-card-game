@@ -1,7 +1,7 @@
 .scoreboard {
     display: flex; /* 使用弹性布局 */
     justify-content: space-around; /* 水平分配空间 */
-    margin: 20px 0; /* 上下边距 */
+    margin: 5px 0; /* 上下边距 */
   }
   
   .scoreboard p {

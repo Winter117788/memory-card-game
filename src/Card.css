@@ -1,7 +1,7 @@
 .card {
     cursor: pointer; /* Mouse pointer on hover */
     border: 2px solid #ddd; /* Border color */
-    padding: 10px; /* Padding around content */
+    padding: 2px; /* Padding around content */
     border-radius: 8px; /* Rounded corners */
     border: 3px solid #fff; /* Adds a white border to create spacing */
     text-align: center; /* Center text */
